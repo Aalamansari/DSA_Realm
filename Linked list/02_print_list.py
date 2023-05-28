@@ -16,9 +16,9 @@ class LinkedList:
             print(temp.value)
             temp = temp.next
 
-my_linkedlist = LinkedList(4)
+my_linkedlist = LinkedList(4)   
 
 
-print(my_linkedlist.print_list())
+my_linkedlist.print_list()
 
 
