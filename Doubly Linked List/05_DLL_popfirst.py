@@ -32,14 +32,14 @@ class Doubly_Linked_list:
     def popfirst(self):
         if self.length==0:
             return None
-        temp = self.head.next
-        self.head.next = None
-        self.head.prev = None
-        self.head = temp
-        self.length-=1
-        if self.length==0:
+        if self.length==1:
             self.head=None
             self.tail=None
+        temp = self.head
+        self.head = temp.next
+        self.head.prev = None
+        temp.next = None
+        self.length-=1
         return True
 
 myDLL = Doubly_Linked_list(3)
