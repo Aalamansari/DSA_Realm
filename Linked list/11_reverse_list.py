@@ -124,7 +124,7 @@ class LinkedList:
         temp = self.head
         self.head = self.tail
         self.tail = temp
-        before = None
+        before = None   
         for i in range(self.length):
             after = temp.next
             temp.next = before
