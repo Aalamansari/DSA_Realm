@@ -29,37 +29,22 @@ class Doubly_Linked_list:
         self.length+=1
         return True
 
-    def pop(self):
+    def prepend(self,value):
+        new_node = Node(value)
         if self.length==0:
-            return None
-        temp = self.tail
-        self.tail = self.tail.prev
-        self.tail.next = None
-        temp.prev = None
-        self.length-=1
-        if self.length == 0:
-            self.head = None
-            self.tail = None    
-        return temp.value
-        
-    # def pop(self):
-    #     if self.length == 0:
-    #         return None
-        
-    #     temp = self.tail
-        
-    #     if self.length == 1:
-    #         self.head = None
-    #         self.tail = None
-    #     else:    
-    #         self.tail = self.tail.prev
-    #         temp.prev = None
-    #         self.tail.next = None
-    
-    #     self.length -= 1
-    #     return temp.value
+            self.head = new_node
+            self.tail = new_node
+        else:
+            self.head.prev = new_node
+            new_node.next = self.head
+            self.head = new_node
+            new_node.prev = None
+        self.length+=1
+        return True
+
 
 myDLL = Doubly_Linked_list(3)
 myDLL.append(4)
 myDLL.append(5)
-print(myDLL.pop())
+myDLL.prepend(9)
+myDLL.print()
