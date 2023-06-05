@@ -119,17 +119,37 @@ class LinkedList:
         return temp
  
     def reverse(self):
-        if self.length==0:
-            return None
-        temp = self.head
-        self.head = self.tail
-        self.tail = temp
-        before = None   
-        for i in range(self.length):
-            after = temp.next
-            temp.next = before
-            before = temp
-            temp = after
+        if self.length == 0:
+            return False
+        else:
+            temp = self.head
+            self.head = self.tail
+            self.tail = temp
+            
+            before = None
+            for _ in range(self.length):
+                after = temp.next
+                temp.next = before
+                temp.prev = after
+                before = temp
+                temp = after
+        return True
+
+    def is_palindrome(self):
+        if self.length == 0:
+            return False
+        if self.length == 1:
+            return True
+        else:
+            first = self.head
+            last = self.tail
+            while(first != last):
+                if first.value == last.value:
+                    first = first.next
+                    last = last.prev
+                else:
+                    return False
+        return True
 
 
 myList = LinkedList(4)
