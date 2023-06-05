@@ -7,8 +7,8 @@ class Node:
 class Doubly_Linked_list:
     def __init__(self,value):
         newnode = Node(value)
-        self.head = value
-        self.tail = value
+        self.head = newnode
+        self.tail = newnode
         self.length = 1
 
     def print(self):
