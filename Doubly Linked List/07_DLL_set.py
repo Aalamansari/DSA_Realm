@@ -33,7 +33,7 @@ class Doubly_Linked_list:
         if index<0 or index>=self.length:
             return None
         temp = self.head
-        if self.length/2<index:
+        if self.length/2>index:
             for i in range(index):
                 temp = temp.next
         else:

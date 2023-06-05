@@ -33,8 +33,12 @@ class Doubly_Linked_list:
         if self.length==0:
             return None
         if self.length==1:
+            temp = self.head
             self.head=None
             self.tail=None
+            self.length-=1
+            return True
+
         temp = self.head
         self.head = temp.next
         self.head.prev = None
@@ -43,7 +47,7 @@ class Doubly_Linked_list:
         return True
 
 myDLL = Doubly_Linked_list(3)
-myDLL.append(4)
-myDLL.append(5)
+# myDLL.append(4)
+# myDLL.append(5)
 myDLL.popfirst()
 myDLL.print()

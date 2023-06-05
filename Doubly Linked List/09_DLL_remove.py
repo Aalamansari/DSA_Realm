@@ -46,8 +46,12 @@ class Doubly_Linked_list:
         if self.length==0:
             return None
         if self.length==1:
+            temp = self.head
             self.head=None
             self.tail=None
+            self.length-=1
+            return True
+        
         temp = self.head
         self.head = temp.next
         self.head.prev = None
@@ -59,7 +63,7 @@ class Doubly_Linked_list:
         if index<0 or index>=self.length:
             return None
         temp = self.head
-        if self.length/2<index:
+        if self.length/2>index:
             for i in range(index):
                 temp = temp.next
         else:

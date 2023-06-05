@@ -33,7 +33,7 @@ class Doubly_Linked_list:
         if index<0 or index>=self.length:
             return None
         temp = self.head
-        if self.length/2<index:
+        if self.length/2>index:
             for i in range(index):
                 temp = temp.next
         else:
@@ -47,5 +47,5 @@ myDLL.append(4)
 myDLL.append(5)
 myDLL.append(7)
 myDLL.append(9)
-val = myDLL.get(3)
+val = myDLL.get(4)
 print(val)
