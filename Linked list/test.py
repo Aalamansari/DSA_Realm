@@ -1,63 +1,55 @@
 class Node:
     def __init__(self,value):
-        self.value = value
+        self.value = value 
         self.next = None
+        self.prev = None
 
-class LinkedList:
+class Doubly_Linked_list:
     def __init__(self,value):
         new_node = Node(value)
         self.head = new_node
         self.tail = new_node
         self.length = 1
 
-    def print_list(self):
+    def print(self):
         temp = self.head
-        while temp is not None:
+        while temp!=None:
             print(temp.value)
             temp = temp.next
 
     def append(self,value):
         new_node = Node(value)
-        if self.length==0:  
+        if self.length==None:
             self.head = new_node
             self.tail = new_node
         else:
             self.tail.next = new_node
+            new_node.prev =self.tail
             self.tail = new_node
         self.length+=1
+        return True
 
-    # def find_middle_node(self):
-    #     if self.head == None and self.tail == None:
-    #         return None
-    #     slow = self.head
-    #     fast = self.head
-        
-    #     while(fast != None and  fast.next != None):
-    #         slow = slow.next
-    #         fast = fast.next.next
-    #     return slow.value
-
-    def has_loop(self):
-        if self.head==None and self.tail==None:
-            return True
-        slow = self.head
-        fast = self.head
-        while(fast!=None and fast.next!=None):
-            slow = slow.next
-            fast = fast.next.next
-            if(fast==slow):
-                return True
-        return False
+    def swap_pairs(self):
+        if self.length <= 1:
+            return False
+        else:
+            before = self.head
+            after = before.next
+            while(before.next!=None and after.next!=None):
+                temp = before.value
+                before.value = after.value
+                after.value = temp
+                if(before.next==None or after.next==None):
+                    break
+                before = after.next
+                after = before.next
+        return True
 
 
-my_linkedlist = LinkedList(3)
-
-my_linkedlist.append(1)
-my_linkedlist.append(8)
-my_linkedlist.append(3)
-my_linkedlist.append(6)
-val = my_linkedlist.find_middle_node()
-print("Middle node:",val)
-
-
-my_linkedlist.print_list()
+myDLL = Doubly_Linked_list(1)
+myDLL.append(2)
+myDLL.append(3)
+myDLL.append(4)
+myDLL.append(5)
+myDLL.swap_pairs()
+myDLL.print()
