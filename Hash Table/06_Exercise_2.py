@@ -1,3 +1,5 @@
+#how to find duplicates in a given list using a dictionary
+
 def find_duplicates(nums):
     dict1 = {}
     l1 =[]
@@ -11,3 +13,6 @@ def find_duplicates(nums):
         if values > 1:
             l1.append(key)
     return l1
+
+
+print(find_duplicates([1,1,2,2,3]))
