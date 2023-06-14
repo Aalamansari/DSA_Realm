@@ -1,3 +1,4 @@
+# Find the first non-repeating character from the given string
 def find_unique(str):
     dict1 = {}
     l1 =[]
