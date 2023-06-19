@@ -1,21 +1,20 @@
-def find_unique(str):
-    dict1 = {}
-    l1 =[]
-    for i in str:
-        if i not in dict1:
-            dict1[i] = 1
-        else:
-            dict1[i] = dict1[i] + 1
+nums = [5,3,1,1,1,3,73,1]
+result = []
+k=1
+hashmap = {}
+for i in nums:
+    if i not in hashmap:
+        hashmap[i] = 1
+    else:
+        hashmap[i]+=1
     
-    for key, values in dict1.items():
-        if values == 1:
-            l1.append(key)
-            break
-    if len(l1)==0:
-        return None
-    return l1
+for key,values in hashmap.items():
+    if values>1 and len(result)!=k:
+        result.append(key)
 
+for key,values in hashmap.items():
+    if values==1 and len(result)!=k:
+        result.append(key)
 
-str = 'aabbcc'
-str1 = list(str)
-print(find_unique(str1))
+print(result)
+print(hashmap)
