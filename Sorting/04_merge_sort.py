@@ -21,4 +21,14 @@ def merge(list1,list2):
     return combined
 
 
-print(merge([1,2,3,4,5],[12,14,15]))
+def merge_sort(mylist):
+    if len(mylist)==1:
+        return mylist
+    mid_index = int(len(mylist)/2)
+    left = merge_sort(mylist[:mid_index])
+    right = merge_sort(mylist[mid_index:])
+
+    return merge(left,right)
+
+
+print(merge_sort([12,11,4,2,7]))
