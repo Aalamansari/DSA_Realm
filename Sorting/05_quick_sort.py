@@ -14,7 +14,7 @@ def pivot(mylist,pivot_index,end_index):
     swap(mylist,pivot_index,swap_index)
     return swap_index
 
-my_list = [4,6,1,7,3,2,5]
+my_list = [4,6,1,7,5,3,2]
 
 print(pivot(my_list,0,6))
 print(my_list)
