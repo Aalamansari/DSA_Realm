@@ -29,11 +29,24 @@ class BinarySearchTree:
                     return True
                 temp = temp.right
 
-my_tree = BinarySearchTree()
-my_tree.insert(12)
-my_tree.insert(11)
-my_tree.insert(14)
+    def BFS(self):
+        current_node = self.root
+        queue = []
+        result = []
+        queue.append(current_node)
+        while len(queue)>0:
+            current_node = queue.pop(0)
+            result.append(current_node.value)
+            if current_node.left is not None:
+                queue.append(current_node.left)
+            if current_node.right is not None:
+                queue.append(current_node.right)
+        return result
 
-print(my_tree.root.value)
-print(my_tree.root.left.value)
-print(my_tree.root.right.value)
+my_tree = BinarySearchTree()
+my_tree.insert(47)
+my_tree.insert(21)
+my_tree.insert(76)
+my_tree.insert(18)
+my_tree.insert()
+my_tree.insert(14)
